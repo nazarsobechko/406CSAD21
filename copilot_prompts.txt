@@ -1,0 +1,2 @@
+Create main.cpp in the repo root with a minimal C++ Hello World program that prints "Hello, World!"
+Create README.md in the repo root (replace the existing one) with: student full name "Назар Собечко Олегович", group КІ-406, variant 21, and a short description of the project (a cross-platform C++ Hello World built with CMake and GitHub Actions)
