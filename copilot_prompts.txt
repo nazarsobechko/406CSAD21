@@ -6,3 +6,7 @@ Create a tests folder with unit_tests.cpp using Google Test. Add a test named Ba
 Update CMakeLists.txt: build math_operations.cpp as a static library, fetch Google Test via FetchContent, build a unit_tests executable from tests/unit_tests.cpp linked with the library and GTest, call enable_testing() and register it with CTest using add_test (or gtest_discover_tests). Keep the hello executable.
 Create a .gitignore in the repo root that ignores the build/ directory and common C++ build artifacts.
 Create ci.sh in the repo root, a bash script that runs without any parameters. It should: stop on errors (set -e), create a build directory, run cmake configure, build the project with "cmake --build . --config Release", and run "ctest -C Release --output-on-failure". It must work on Linux, macOS and on Windows under Git Bash.
+Create .github/workflows/ci.yml, a GitHub Actions workflow with these requirements:
+- Trigger on push and pull_request for branches whose names contain "develop" or "master" (use patterns like '**develop**' and '**master**').
+- One job named cross_build with a matrix over os: ubuntu-latest, windows-latest, macos-latest.
+- Steps: actions/checkout@v4; run ./ci.sh with "shell: bash" (so it also works on Windows); a step named "Run Unit Tests" that runs ctest -C Release --output-on-failure in the build directory (shell: bash); a step named "Deploy" that uploads the built executables (hello and unit_tests, including the Release subfolder on Windows) using actions/upload-artifact@v4 with a name that includes the OS.
