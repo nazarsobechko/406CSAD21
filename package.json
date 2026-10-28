@@ -1,0 +1,15 @@
+{
+  "name": "406csad21",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal JavaScript project for Build Engineer automation",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "start": "node src/index.js",
+    "test": "jest --runInBand"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}

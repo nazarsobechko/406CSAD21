@@ -24,7 +24,9 @@ agent: "Build Engineer"
 ## Перевірки
 
 Перевірити YAML, один job, matrix, checkout, setup-node, запуск `ci.sh` і
-відсутність команд build/test у YAML; локально виконати `ci.sh`.
+відсутність команд build/test у YAML; локально на Windows виконати `ci.sh`
+через Git Bash командою `"C:\Program Files\Git\bin\bash.exe" ci.sh`.
+У workflow для кроку запуску `ci.sh` використати `shell: bash`.
 
 ## Повідомлення про помилку
 
